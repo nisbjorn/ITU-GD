@@ -14,13 +14,18 @@ function OnMouseDown (){
 
 function select() {
 	
-		for(var endzone : GameObject in GameObject.FindGameObjectsWithTag("Endzone"))
-{
-    endzone.GetComponent(Selectable).unSelect();
-}
-GameObject.Find("Game").GetComponent(GameLogic).target = this.transform;
-		renderer.material = selectedMaterial;
-		selected = true;
+	for(var endzone : GameObject in GameObject.FindGameObjectsWithTag("Endzone"))
+	{
+    	endzone.GetComponent(Selectable).unSelect();
+	}
+	GameObject.Find("Game").GetComponent(GameLogic).target = this.transform;
+	for (var dropzone : GameObject in GameObject.FindGameObjectsWithTag("DropZone") ) {
+		dropzone.GetComponent(DropZone).Target = this.transform;
+	}
+	
+	
+	renderer.material = selectedMaterial;
+	selected = true;
 }
 
 function unSelect() {

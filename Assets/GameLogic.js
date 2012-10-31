@@ -5,7 +5,7 @@ var Soldier : Transform;
 var target : Transform;
 
 function Start () {
-
+	
 }
 
 function Update () {
