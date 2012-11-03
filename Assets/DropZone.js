@@ -15,8 +15,4 @@ function SpawnUnit() {
 
 
 function Update () {
-	
-}ath).target = Target;
- 	
- 	return;
 }
