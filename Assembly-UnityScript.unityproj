@@ -44,13 +44,11 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\DropZone.js" />
-     <Compile Include="Assets\EnemyID.js" />
      <Compile Include="Assets\GameLogic.js" />
-     <Compile Include="Assets\Selectable.js" />
-     <Compile Include="Assets\SolderLineOfSight.js" />
      <Compile Include="Assets\SoldierCollisionDectection.js" />
-     <Compile Include="Assets\unitLogic.js" />
+     <Compile Include="Assets\nodes\DropZone.js" />
+     <Compile Include="Assets\nodes\Selectable.js" />
+     <Compile Include="Assets\units\unitLogic.js" />
      <None Include="Assets\AstarPathfindingEditor\Editor\EditorAssets\Materials\Navmesh2.shader" />
      <None Include="Assets\Plugins\AstarPathfindingProject\Readme_upgrading.txt" />
      <None Include="Assets\Plugins\AstarPathfindingProject\Plugins\DotNetZip\License.txt" />
