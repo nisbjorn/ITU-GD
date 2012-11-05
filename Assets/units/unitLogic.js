@@ -14,7 +14,7 @@ var baseDamage : float = 5;
 var enemyTag : String;
 var firingFrequency : float = 0.7;
 
-function Start () {
+function Start() {
 	if (gameObject.tag == "Trooper") {
 		enemyTag = "Bug";
 	} else {

@@ -19,4 +19,5 @@ function SpawnUnits() {
 
 
 function Update () {
+	// Start with world coordinates.
 }
