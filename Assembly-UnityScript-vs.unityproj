@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\GameLogic.js" />
+     <Compile Include="Assets\Menu.js" />
      <Compile Include="Assets\SoldierCollisionDectection.js" />
      <Compile Include="Assets\nodes\DropZone.js" />
      <Compile Include="Assets\nodes\Selectable.js" />
