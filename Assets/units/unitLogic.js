@@ -51,7 +51,10 @@ function ScanForEnemies() {
 	    
 	    if ( closestEnemy != null ) { 
 	    	Debug.LogError("Engaging enemy!");
+	    	this.GetComponent(AIPath).canMove = false;
 	    	EngageEnemy(closestEnemy);
+	    } else {
+	    	this.GetComponent(AIPath).canMove = true;
 	    }
 	    
 	    yield WaitForSeconds(ScanFrequency);
@@ -78,6 +81,7 @@ function EngageEnemy(enemy : GameObject) {
 		
 		yield WaitForSeconds(firingFrequency);
 	}
+	
 	Debug.LogError("EnemyOutOfRange!");
 }
 
