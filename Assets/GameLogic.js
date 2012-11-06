@@ -10,9 +10,11 @@ function Start () {
 }
 
 function SetSelection(newSelection : GameObject) {
+	// only update selection if the newselection is different from the current
 	if ( selected == newSelection ) {
 		return;
 	}
+	// call deselect on the old selected node
 	if ( selected != null ) {
 		selected.GetComponent(Selectable).DeSelect();
 	}
@@ -25,15 +27,15 @@ function GetSelection() {
 }
 
 function DeSelect() {
+	// global deselect for last selected object
 	selected.GetComponent(Selectable).DeSelect();
 	selected = null;
 }
 
 function SetTarget(newTarget : GameObject) {
-	Debug.LogError("Setting new target: "+ selected.name);
-	if (selected == null) {
+	if (selected == null || selected == newTarget) {
 		return;
 	}
-	
+	Debug.LogError("Setting new target: "+ selected.name);
 	selected.GetComponent(Selectable).SetTarget(newTarget.transform);
 }
