@@ -1,8 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/MenuGUI.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/units/unitLogic.js">
     <Files>
-      <File FileName="Assets/MenuGUI.js" Line="4" Column="2" />
+      <File FileName="Assets/Menu.js" Line="11" Column="68" />
+      <File FileName="Assets/nodes/DropZone.js" Line="1" Column="1" />
+      <File FileName="Assets/units/unitLogic.js" Line="26" Column="20" />
+      <File FileName="Assets/units/GUILabel.js" Line="8" Column="26" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
