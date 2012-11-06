@@ -1,6 +1,6 @@
-.Temp/
-.Library/
-.obj/
+Temp/
+Library/
+obj/
 *.svd
 
 !Library/*.asset
@@ -13,8 +13,6 @@
 !Library/guidmapper
 !Library/unity default resources
 !Library/unity editor resources
-
-
 
 /Project/Project.userprefs
 /Project/Assembly-CSharp.csproj

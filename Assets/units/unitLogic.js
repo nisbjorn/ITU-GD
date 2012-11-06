@@ -56,7 +56,6 @@ function ScanForEnemies() {
 	    } else {
 	    	this.GetComponent(AIPath).canMove = true;
 	    }
-	    
 	    yield WaitForSeconds(ScanFrequency);
 	}
 	

@@ -3,16 +3,37 @@
 //var interval : int = 5;
 //var Soldier : Transform;
 //var target : Transform;
+var selected : GameObject;
 
 function Start () {
-	
+	selected = null;
 }
 
-function Update () {
-	//seconds += Time.deltaTime;
-	//if (seconds>interval) {
-	//	seconds = 0;
-	//	var soldier : Transform = Instantiate(Soldier, Vector3(-38.58082,0,-15.87056), Quaternion.Euler(0,90,0)); 
-	//	soldier.GetComponent(AIPath).target = target;
-	//}
+function SetSelection(newSelection : GameObject) {
+	if ( selected == newSelection ) {
+		return;
+	}
+	if ( selected != null ) {
+		selected.GetComponent(Selectable).DeSelect();
+	}
+	selected = newSelection;
+	Debug.LogError("Setting new target: "+ selected.name);
+}
+
+function GetSelection() {
+	return selected;
+}
+
+function DeSelect() {
+	selected.GetComponent(Selectable).DeSelect();
+	selected = null;
+}
+
+function SetTarget(newTarget : GameObject) {
+	Debug.LogError("Setting new target: "+ selected.name);
+	if (selected == null) {
+		return;
+	}
+	
+	selected.GetComponent(Selectable).SetTarget(newTarget.transform);
 }
