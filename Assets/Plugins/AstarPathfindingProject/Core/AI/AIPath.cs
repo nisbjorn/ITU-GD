@@ -182,7 +182,9 @@ public class AIPath : MonoBehaviour {
 	
 	public void SearchPath () {
 		
-		if (target == null) { Debug.LogError ("Target is null, aborting all search"); return; }
+		if (target == null) { //Debug.LogError ("Target is null, aborting all search"); 
+			return; 
+		}
 		
 		lastRepath = Time.time;
 		//This is where we should search to

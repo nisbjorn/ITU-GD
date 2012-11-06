@@ -1,0 +1,16 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Selectable.js">
+    <Files>
+      <File FileName="Assets/SoldierCollisionDectection.js" Line="3" Column="23" />
+      <File FileName="Assets/GameLogic.js" Line="15" Column="3" />
+      <File FileName="Assets/DropZone.js" Line="7" Column="2" />
+      <File FileName="Assets/Plugins/AstarPathfindingProject/Core/AI/AIPath.cs" Line="187" Column="4" />
+      <File FileName="Assets/Selectable.js" Line="22" Column="76" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
