@@ -77,7 +77,7 @@ function SetSelection(newSelection : GameObject) {
 		selected.GetComponent(Selectable).DeSelect();
 	}
 	selected = newSelection;
-	Debug.LogError("Setting new target: " + selected.name);
+	Debug.LogError("Selection: " + selected.name);
 }
 
 function GetSelection() {
@@ -94,6 +94,6 @@ function SetTarget(newTarget : GameObject) {
 	if (selected == null || selected == newTarget) {
 		return;
 	}
-	Debug.LogError("Setting new target: "+ selected.name);
+	Debug.LogError("Setting new target: "+ newTarget.name);
 	selected.GetComponent(Selectable).SetTarget(newTarget.transform);
 }

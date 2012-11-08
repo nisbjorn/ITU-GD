@@ -14,7 +14,7 @@ function SpawnUnits() {
 		unit.GetComponent(AIPath).target = gameObject.GetComponent(Selectable).Target;
 		
 		// singal that we've just added a gameobject
-		GameObject.Find("Game").GetComponent(GameLogic).AddUnit(Unit.name);
+		gameObject.GetComponent(Selectable).unitEntered(unit.gameObject);
 		
 		yield WaitForSeconds(spawnTimer);
 	}

@@ -2,7 +2,7 @@ var selectedMaterial : Material;
 var defaultMaterial : Material;
 var selected : boolean = false;
 var Target : Transform = null;
-
+var units = new Array();
 defaultMaterial = renderer.material;
 
 function OnMouseOver()
@@ -67,7 +67,7 @@ function DeSelect() {
 	renderer.material = defaultMaterial;
 	selected = false;
 }
-var units = new Array();
+
 function SetTarget(target : Transform) {
 	Target = target;
 	// there is a race-condition here..
@@ -78,6 +78,14 @@ function SetTarget(target : Transform) {
 	}
 }
 
+function unitEntered(unit : GameObject) {
+	if ( this.Target == null ) {
+		this.units.push(unit);
+		return;
+	}
+	unit.GetComponent( AIPath ).target = this.Target;
+}
+
 function OnTriggerEnter( collider : Collider ) {
 	// only update the path of the troopers
 	if (collider.gameObject.tag == "Trooper") {
@@ -85,12 +93,7 @@ function OnTriggerEnter( collider : Collider ) {
 		// if not, allow the unit to proceed through the node with unchanged target
 		if (collider.gameObject.GetComponent( AIPath ).target == transform ) {
 			// enqueue unit if there is not target set for this node
-			if ( this.Target == null ) {
-				this.units.push(collider.gameObject);
-				return;
-			}
-			// update target of unit!
-			collider.gameObject.GetComponent( AIPath ).target = this.Target;
+			unitEntered(collider.gameObject);
 		}
 	}
 }
