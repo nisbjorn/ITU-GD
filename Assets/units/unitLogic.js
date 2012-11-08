@@ -6,6 +6,7 @@ var enemySightedMat : Material;
 
 
 // unitStats
+// needs more comments
 var ScanRadius : float = 3;
 var ScanFrequency : float = 0.1;
 var unitAccuracy : float = 70.0;
@@ -89,6 +90,7 @@ function SetDamage(damage : float) {
 	transform.renderer.material = enemySightedMat;
 	if ( this.baseHealth < 0.0 ) {
 		// update global playerScore etc.
+		GameObject.Find("Game").GetComponent(GameLogic).UnitDied(gameObject.name);
 		Destroy(gameObject);
 	}
 }
