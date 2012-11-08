@@ -6,6 +6,7 @@ var enemySightedMat : Material;
 
 
 // unitStats
+// needs more comments
 var ScanRadius : float = 3;
 var ScanFrequency : float = 0.1;
 var unitAccuracy : float = 70.0;
