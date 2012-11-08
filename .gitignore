@@ -1,6 +1,6 @@
-.Temp/
-.Library/
-.obj/
+Temp/
+Library/
+obj/
 *.svd
 
 !Library/*.asset
@@ -8,13 +8,11 @@
 !Library/AssetVersioning.db
 !Library/BuildPlayer.prefs
 !Library/ScriptMapper
-!Library/assetservercachev3
+!Library/assetServerCachev3
 !Library/expandedItems
 !Library/guidmapper
 !Library/unity default resources
 !Library/unity editor resources
-
-
 
 /Project/Project.userprefs
 /Project/Assembly-CSharp.csproj

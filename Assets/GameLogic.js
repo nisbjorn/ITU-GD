@@ -3,16 +3,39 @@
 //var interval : int = 5;
 //var Soldier : Transform;
 //var target : Transform;
+var selected : GameObject;
 
 function Start () {
-	
+	selected = null;
 }
 
-function Update () {
-	//seconds += Time.deltaTime;
-	//if (seconds>interval) {
-	//	seconds = 0;
-	//	var soldier : Transform = Instantiate(Soldier, Vector3(-38.58082,0,-15.87056), Quaternion.Euler(0,90,0)); 
-	//	soldier.GetComponent(AIPath).target = target;
-	//}
+function SetSelection(newSelection : GameObject) {
+	// only update selection if the newselection is different from the current
+	if ( selected == newSelection ) {
+		return;
+	}
+	// call deselect on the old selected node
+	if ( selected != null ) {
+		selected.GetComponent(Selectable).DeSelect();
+	}
+	selected = newSelection;
+	Debug.LogError("Setting new target: "+ selected.name);
+}
+
+function GetSelection() {
+	return selected;
+}
+
+function DeSelect() {
+	// global deselect for last selected object
+	selected.GetComponent(Selectable).DeSelect();
+	selected = null;
+}
+
+function SetTarget(newTarget : GameObject) {
+	if (selected == null || selected == newTarget) {
+		return;
+	}
+	Debug.LogError("Setting new target: "+ selected.name);
+	selected.GetComponent(Selectable).SetTarget(newTarget.transform);
 }
