@@ -89,6 +89,7 @@ function SetDamage(damage : float) {
 	transform.renderer.material = enemySightedMat;
 	if ( this.baseHealth < 0.0 ) {
 		// update global playerScore etc.
+		GameObject.Find("Game").GetComponent(GameLogic).UnitDied(gameObject.name);
 		Destroy(gameObject);
 	}
 }
