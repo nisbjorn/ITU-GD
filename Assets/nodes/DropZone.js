@@ -7,7 +7,6 @@ function Start () {
 	SpawnUnits();
 }
 
-
 function SpawnUnits() {
 	while (true) {
 		Debug.Log("SPAWNING!");

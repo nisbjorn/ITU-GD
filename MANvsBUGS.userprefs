@@ -1,9 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/units/unitLogic.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GameLogic.js">
     <Files>
-      <File FileName="Assets/Plugins/AstarPathfindingProject/Core/AstarPath.cs" Line="1" Column="1" />
-      <File FileName="Assets/units/unitLogic.js" Line="1" Column="1" />
+      <File FileName="Assets/nodes/Selectable.js" Line="56" Column="22" />
+      <File FileName="Assets/units/GUILabel.js" Line="9" Column="73" />
+      <File FileName="Assets/GameLogic.js" Line="78" Column="14" />
+      <File FileName="Assets/nodes/DropZone.js" Line="13" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

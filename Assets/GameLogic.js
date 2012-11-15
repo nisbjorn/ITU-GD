@@ -74,27 +74,31 @@ function SetSelection(newSelection : GameObject) {
 	}
 	// call deselect on the old selected node
 	if ( selected != null ) {
-		selected.GetComponent(Selectable).DeSelect();
+		Debug.LogError("DeSelecting!");
+		DeSelect();
 	}
 	selected = newSelection;
+	//selected.GetComponent(Selectable).Select();
 	Debug.LogError("Selection: " + selected.name);
-}
-
-function GetSelection() {
-	return selected;
 }
 
 function DeSelect() {
 	// global deselect for last selected object
+	if (selected == null) {
+		return;
+	}
 	selected.GetComponent(Selectable).DeSelect();
 	selected = null;
 }
 
 function SetTargetTrooper(newTarget : GameObject) {
+	// if there's no previous selection, you cannot designate a target
+	// - also, a node cannot set itself as a target (infinite loop buddy!)
 	if (selected == null || selected == newTarget) {
 		return;
 	}
-	Debug.LogError("Setting new target: "+ newTarget.name);
+	
+	//Debug.LogError("Setting new target: "+ newTarget.name);
 	selected.GetComponent(Selectable).SetTargetTrooper(newTarget.transform);
 }
 
@@ -102,6 +106,6 @@ function SetTargetBug(newTarget : GameObject) {
 	if (selected == null || selected == newTarget) {
 		return;
 	}
-	Debug.LogError("Setting new target: "+ newTarget.name);
+	//Debug.LogError("Setting new target: "+ newTarget.name);
 	selected.GetComponent(Selectable).SetTargetBug(newTarget.transform);
 }

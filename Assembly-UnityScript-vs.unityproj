@@ -49,6 +49,7 @@
      <Compile Include="Assets\SoldierCollisionDectection.js" />
      <Compile Include="Assets\nodes\DropZone.js" />
      <Compile Include="Assets\nodes\Selectable.js" />
+     <Compile Include="Assets\nodes\Selectable1.js" />
      <Compile Include="Assets\units\GUILabel.js" />
      <Compile Include="Assets\units\unitLogic.js" />
      <None Include="Assets\AstarPathfindingEditor\Editor\EditorAssets\Materials\Navmesh2.shader" />
