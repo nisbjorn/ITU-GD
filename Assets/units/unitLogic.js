@@ -24,13 +24,8 @@ function Start() {
 	ScanForEnemies();
 }
 
-function Update() {
-	//ScanForEnemies();
-}
+function ScanForEnemies() {	
 
-function ScanForEnemies() {
-	// return if we're already shooting at an enemy
-	
 	while ( true ) {
 		var objectsInRange : Collider[] = Physics.OverlapSphere(transform.position, ScanRadius);
 	    
@@ -39,7 +34,7 @@ function ScanForEnemies() {
 	    var closestEnemy : GameObject;
 	    for (var col : Collider in objectsInRange)
 	    {
-	    	// only check items that respoond to tag "Bug"
+	    	// only check items that respoond to enemyTag
 	        if ( col.gameObject.tag == enemyTag ) {
 	        	
 	        	var distance = Vector3.Distance( col.transform.position, transform.position);
@@ -57,9 +52,9 @@ function ScanForEnemies() {
 	    } else {
 	    	this.GetComponent(AIPath).canMove = true;
 	    }
+	    
 	    yield WaitForSeconds(ScanFrequency);
 	}
-	
 }
 
 function EngageEnemy(enemy : GameObject) {

@@ -1,8 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Plugins/AstarPathfindingProject/Core/AstarPath.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/units/unitLogic.js">
     <Files>
       <File FileName="Assets/Plugins/AstarPathfindingProject/Core/AstarPath.cs" Line="1" Column="1" />
+      <File FileName="Assets/units/unitLogic.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

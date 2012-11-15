@@ -20,7 +20,3 @@ function SpawnUnits() {
 		yield WaitForSeconds(spawnTimer);
 	}
 }
-
-function Update () {
-	// Start with world coordinates.
-}

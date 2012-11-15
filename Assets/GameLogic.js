@@ -90,10 +90,18 @@ function DeSelect() {
 	selected = null;
 }
 
-function SetTarget(newTarget : GameObject) {
+function SetTargetTrooper(newTarget : GameObject) {
 	if (selected == null || selected == newTarget) {
 		return;
 	}
 	Debug.LogError("Setting new target: "+ newTarget.name);
-	selected.GetComponent(Selectable).SetTarget(newTarget.transform);
+	selected.GetComponent(Selectable).SetTargetTrooper(newTarget.transform);
+}
+
+function SetTargetBug(newTarget : GameObject) {
+	if (selected == null || selected == newTarget) {
+		return;
+	}
+	Debug.LogError("Setting new target: "+ newTarget.name);
+	selected.GetComponent(Selectable).SetTargetBug(newTarget.transform);
 }
