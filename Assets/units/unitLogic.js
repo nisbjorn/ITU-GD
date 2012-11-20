@@ -76,8 +76,6 @@ function EngageEnemy(enemy : GameObject) {
 		
 		yield WaitForSeconds(firingFrequency);
 	}
-	
-	//Debug.LogError("EnemyOutOfRange!");
 }
 
 function SetDamage(damage : float) {
@@ -86,6 +84,10 @@ function SetDamage(damage : float) {
 	if ( this.baseHealth < 0.0 ) {
 		// update global playerScore etc.
 		GameObject.Find("Game").GetComponent(GameLogic).UnitDied(gameObject.name);
+		var target : Transform = gameObject.GetComponent(AIPath).target;
 		Destroy(gameObject);
+		if (target == null) return;
+		target.GetComponent(Selectable).ApproachingOrArrivedTrooperDied();
+		
 	}
 }

@@ -18,8 +18,7 @@ namespace Pathfinding {
 	 * A node has a position and a list of neighbour nodes which are the nodes this node can form a straight path to\n
 	 * Size: (4*3)+4+4+4+4+4+4+8+8*n = 44+8*n bytes where \a n is the number of connections (estimate) */
 
-	public class Node
-		: NodeRun
+	public class Node : NodeRun
 	{
 	
 		private int nodeIndex;
