@@ -13,6 +13,7 @@ public class DropZone : MonoBehaviour {
 	
 	private void SpawnUnits() {
 		GameObject unit;
+		Debug.LogError("spawning Unit: " + Unit.name);
 		if ( Unit.name == "Trooper" ) {
 			if ( gameObject.GetComponent<Selectable>().PermissionToBoard() ) {
 				Debug.LogError("SPAWNING!");

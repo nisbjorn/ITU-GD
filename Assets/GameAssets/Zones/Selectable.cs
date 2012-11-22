@@ -194,14 +194,11 @@ public class Selectable : MonoBehaviour {
 	// called by dropzone.js when a unit is spawned
 	// and when a node's collision is triggered
 	public void unitEntered(Transform unit) {
-		
-		if (unit.name == "Trooper") {
-			Debug.LogError("Trooper! WUUH1!");
-		}
+		Debug.LogError(unit.name+ "entered zone!!!");
 		// if unit is freshly spawned or has this node as a target (meaning it's not passing through)
 		if ( unit.GetComponent<SoldierAnimation>().target == null || unit.GetComponent<SoldierAnimation>().target == transform ) {
 			// trooper logic
-			if (unit.name == "Trooper") {
+			if (unit.name == "Trooper" ) {
 				if ( this.TrooperTarget != null && !this.isBlocked ) {
 					if ( TrooperTarget.GetComponent<Selectable>().PermissionToBoard() ) {
 						DeployUnit(unit);
