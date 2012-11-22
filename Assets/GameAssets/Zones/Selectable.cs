@@ -131,7 +131,7 @@ public class Selectable : MonoBehaviour {
 	public void SetTargetTrooper(Transform from, Transform to) {
 		transform.GetComponent<Seeker>().StartPath(from.position,to.position);
 		transform.GetComponent<Route>().target = to;
-		//transform.GetComponent<SoldierAnimation>().target = to;
+		//transform.GetComponent<AIPath>().target = to;
 		// Disable old targetRender
 	//	if (this.TrooperTarget != null) {
 	//		TrooperTarget.GetComponent<Selectable>().TargetRenderOff();
@@ -146,7 +146,7 @@ public class Selectable : MonoBehaviour {
 	// CurrentTrooperCount is increased thorugh PermissionToBoard()
 	public void EnqeueUnit( Transform unit ) {
 		this.TrooperUnits.Enqueue(unit);
-		unit.GetComponent<SoldierAnimation>().target = null;
+		unit.GetComponent<AIPath>().target = null;
 		//this.CurrentTrooperCount += 1;
 	}
 	
@@ -165,7 +165,7 @@ public class Selectable : MonoBehaviour {
 		this.CurrentTrooperCount -= 1;
 		// 4)	update target to new node
 		Debug.LogError("Deploying Unit!");
-		unit.GetComponent<SoldierAnimation>().target = this.TrooperTarget;
+		unit.GetComponent<AIPath>().target = this.TrooperTarget;
 	}
 	
 	private void releaseTheTroops() {
@@ -187,20 +187,23 @@ public class Selectable : MonoBehaviour {
 	public void OnTriggerEnter( Collider collider ) {
 		// simple wrapper
 		//Debug.LogError("Collission!");
-		Debug.LogError("Collission!");
+		//Debug.LogError("Collission!");
 		unitEntered(collider.transform);
 	}
 	
 	// called by dropzone.js when a unit is spawned
 	// and when a node's collision is triggered
 	public void unitEntered(Transform unit) {
-		Debug.LogError(unit.name+ "entered zone!!!");
+		//Debug.Log(unit.name+ "entered zone");
 		// if unit is freshly spawned or has this node as a target (meaning it's not passing through)
-		if ( unit.GetComponent<SoldierAnimation>().target == null || unit.GetComponent<SoldierAnimation>().target == transform ) {
+		if ( unit.GetComponent<AIPath>().target == null || unit.GetComponent<AIPath>().target == transform ) {
 			// trooper logic
 			if (unit.name == "Trooper" ) {
+				Debug.LogError("Trooper entered!");
 				if ( this.TrooperTarget != null && !this.isBlocked ) {
+					Debug.LogError("Zone is unblocked and has a target!");
 					if ( TrooperTarget.GetComponent<Selectable>().PermissionToBoard() ) {
+						
 						DeployUnit(unit);
 						return;
 					}
@@ -211,6 +214,7 @@ public class Selectable : MonoBehaviour {
 				this.EnqeueUnit(unit);
 			// bug logic
 			} else {
+				return;
 				if ( this.BugTarget == null ) {
 					this.BugUnits.Enqueue(unit);
 					return;
