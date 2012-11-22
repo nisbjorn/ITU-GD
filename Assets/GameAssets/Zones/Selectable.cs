@@ -184,6 +184,7 @@ public class Selectable : MonoBehaviour {
 	public void OnTriggerEnter( Collider collider ) {
 		// simple wrapper
 		//Debug.LogError("Collission!");
+		Debug.LogError("Collission!");
 		unitEntered(collider.transform);
 	}
 	
