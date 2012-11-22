@@ -76,8 +76,9 @@ public class Controller : MonoBehaviour {
 			lastSelected = selected[count-2];
 		if (lastSelected.position!=t.position)
 				if (t.GetComponent<Route>().target != lastSelected) {
-				lastSelected.GetComponent<Seeker>().StartPath(lastSelected.position,t.position);
-				lastSelected.GetComponent<Route>().target = t;
+				lastSelected.GetComponent<Selectable>().SetTargetTrooper (lastSelected, t);
+				//lastSelected.GetComponent<Seeker>().StartPath(lastSelected.position,t.position);
+				//lastSelected.GetComponent<Route>().target = t;
 			}
 		}
 			

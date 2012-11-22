@@ -131,6 +131,7 @@ public class Selectable : MonoBehaviour {
 	public void SetTargetTrooper(Transform from, Transform to) {
 		transform.GetComponent<Seeker>().StartPath(from.position,to.position);
 		transform.GetComponent<Route>().target = to;
+		//transform.GetComponent<SoldierAnimation>().target = to;
 		// Disable old targetRender
 	//	if (this.TrooperTarget != null) {
 	//		TrooperTarget.GetComponent<Selectable>().TargetRenderOff();
@@ -145,27 +146,29 @@ public class Selectable : MonoBehaviour {
 	// CurrentTrooperCount is increased thorugh PermissionToBoard()
 	public void EnqeueUnit( Transform unit ) {
 		this.TrooperUnits.Enqueue(unit);
-		unit.GetComponent<Route>().target = null;
+		unit.GetComponent<SoldierAnimation>().target = null;
 		//this.CurrentTrooperCount += 1;
 	}
 	
 	public void DeployUnitFromQueue() {
 		// 2) pop unit from list
 		Transform unit = TrooperUnits.Dequeue();
-		// 3) reduce currentTrooperCount
-		this.CurrentTrooperCount -= 1;
-		// 4)	update target to new node
-		unit.GetComponent<Route>().target = this.TrooperTarget;
+		
+		if (unit == null) {
+			return;
+		}	
+		DeployUnit(unit);
 	}
 	
 	public void DeployUnit(Transform unit) {
 		// 3) reduce currentTrooperCount
 		this.CurrentTrooperCount -= 1;
 		// 4)	update target to new node
-		unit.GetComponent<Route>().target = this.TrooperTarget;
+		Debug.LogError("Deploying Unit!");
+		unit.GetComponent<SoldierAnimation>().target = this.TrooperTarget;
 	}
 	
-	private void releaseTheTroops() {	
+	private void releaseTheTroops() {
 		// only release units if the node has been unblocked
 		if ( this.isBlocked || this.TrooperTarget == null) return;
 		
@@ -191,10 +194,14 @@ public class Selectable : MonoBehaviour {
 	// called by dropzone.js when a unit is spawned
 	// and when a node's collision is triggered
 	public void unitEntered(Transform unit) {
+		
+		if (unit.name == "Trooper") {
+			Debug.LogError("Trooper! WUUH1!");
+		}
 		// if unit is freshly spawned or has this node as a target (meaning it's not passing through)
-		if ( unit.GetComponent<Route>().target == null || unit.GetComponent<Route>().target == transform ) {
+		if ( unit.GetComponent<SoldierAnimation>().target == null || unit.GetComponent<SoldierAnimation>().target == transform ) {
 			// trooper logic
-			if (unit.tag == "Trooper") {
+			if (unit.name == "Trooper") {
 				if ( this.TrooperTarget != null && !this.isBlocked ) {
 					if ( TrooperTarget.GetComponent<Selectable>().PermissionToBoard() ) {
 						DeployUnit(unit);
