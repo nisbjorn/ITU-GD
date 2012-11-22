@@ -1,9 +1,11 @@
+*.csproj
 *.sln
 *.userprefs
 *.csproj
 *.pidb
 *.unityproj
 *.svd
+*.meta
 .DS_Store
 /Library/FailedAssetImports.txt
 /Library/cache/
