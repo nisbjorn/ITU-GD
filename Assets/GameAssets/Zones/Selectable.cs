@@ -198,17 +198,15 @@ public class Selectable : MonoBehaviour {
 		// if unit is freshly spawned or has this node as a target (meaning it's not passing through)
 		if ( unit.GetComponent<AIPath>().target == null || unit.GetComponent<AIPath>().target == transform ) {
 			// trooper logic
-			if (unit.name == "Trooper" ) {
+			if (unit.tag == "Trooper" ) {
 				Debug.LogError("Trooper entered!");
 				if ( this.TrooperTarget != null && !this.isBlocked ) {
 					Debug.LogError("Zone is unblocked and has a target!");
 					if ( TrooperTarget.GetComponent<Selectable>().PermissionToBoard() ) {
-						
 						DeployUnit(unit);
 						return;
 					}
 				}
-				
 				//unit.GetComponent( Route ).target = transform;
 				//this.CurrentTrooperCount += 1;
 				this.EnqeueUnit(unit);
